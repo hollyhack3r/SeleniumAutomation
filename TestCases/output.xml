@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on darwin)" generated="2024-05-27T14:23:22.213563" rpa="false" schemaversion="5">
+<suite id="s1" name="LoginWithExcelCredentials" source="/Users/niharkhandekar/PycharmProjects/Fundware/TestCases/LoginWithExcelCredentials.robot">
+<kw name="U_LaunchBrowser" owner="Keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:23:23.073693" level="INFO">Opening browser 'Chrome' to base url 'https://fwu.milessoft.com/FundwareUCITSClientQA_189/Authentication/Login.aspx'.</msg>
+<msg time="2024-05-27T14:23:24.194092" level="WARN">The chromedriver version (124.0.6367.91) detected in PATH at /Users/niharkhandekar/PycharmProjects/BrowserDrivers/chromedriver might not be compatible with the detected chrome version (125.0.6422.78); currently, chromedriver 125.0.6422.78 is recommended for chrome 125.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${Application_URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-27T14:23:23.073577" elapsed="13.060518"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.134508" elapsed="0.174721"/>
+</kw>
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+<status status="PASS" start="2024-05-27T14:23:23.073178" elapsed="13.236155"/>
+</kw>
+<test id="s1-t1" name="Login with Credentials from Excel" line="15">
+<kw name="U_GetRowCountFromXLS" owner="Keywords">
+<kw name="Open Excel Document" owner="ExcelLibrary">
+<arg>filename=${EXCEL_FILE}</arg>
+<arg>doc_id=1</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.309958" elapsed="0.005428"/>
+</kw>
+<kw name="Read Excel Column" owner="ExcelLibrary">
+<msg time="2024-05-27T14:23:36.315664" level="INFO">${col_data} = ['${username}', 'sa', 'vinit']</msg>
+<var>${col_data}</var>
+<arg>col_num=1</arg>
+<arg>sheet_name=${SheetName}</arg>
+<doc>Returns content of a column from the current sheet of the document.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.315497" elapsed="0.000181"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-27T14:23:36.315914" level="INFO">${row_count} = 3</msg>
+<var>${row_count}</var>
+<arg>len(${col_data})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.315737" elapsed="0.000189"/>
+</kw>
+<return>
+<value>${row_count}</value>
+<status status="PASS" start="2024-05-27T14:23:36.315956" elapsed="0.000042"/>
+</return>
+<kw name="Close All Excel Documents" owner="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="NOT RUN" start="2024-05-27T14:23:36.316063" elapsed="0.000011"/>
+</kw>
+<msg time="2024-05-27T14:23:36.316133" level="INFO">${RowCount} = 3</msg>
+<var>${RowCount}</var>
+<arg>${EXCEL_FILE}</arg>
+<arg>${SheetName}</arg>
+<status status="PASS" start="2024-05-27T14:23:36.309772" elapsed="0.006371"/>
+</kw>
+<kw name="U_GetColumnCountFromXLS" owner="Keywords">
+<kw name="Open Excel Document" owner="ExcelLibrary">
+<arg>filename=${EXCEL_FILE}</arg>
+<arg>doc_id=2</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.316392" elapsed="0.001875"/>
+</kw>
+<kw name="Read Excel Row" owner="ExcelLibrary">
+<msg time="2024-05-27T14:23:36.318441" level="INFO">${row_data} = ['${username}', '${password}']</msg>
+<var>${row_data}</var>
+<arg>row_num=1</arg>
+<arg>sheet_name=${SheetName}</arg>
+<doc>Returns content of a row from the current sheet of the document.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.318330" elapsed="0.000123"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-27T14:23:36.318608" level="INFO">${col_count} = 2</msg>
+<var>${col_count}</var>
+<arg>len(${row_data})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.318503" elapsed="0.000115"/>
+</kw>
+<return>
+<value>${col_count}</value>
+<status status="PASS" start="2024-05-27T14:23:36.318642" elapsed="0.000021"/>
+</return>
+<kw name="Close All Excel Documents" owner="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="NOT RUN" start="2024-05-27T14:23:36.318708" elapsed="0.000010"/>
+</kw>
+<msg time="2024-05-27T14:23:36.318767" level="INFO">${ColumnCount} = 2</msg>
+<var>${ColumnCount}</var>
+<arg>${EXCEL_FILE}</arg>
+<arg>${SheetName}</arg>
+<status status="PASS" start="2024-05-27T14:23:36.316265" elapsed="0.002512"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RowCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.318843" elapsed="0.000066"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${ColumnCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.318987" elapsed="0.000094"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Read Excel Row" owner="ExcelLibrary">
+<msg time="2024-05-27T14:23:36.319478" level="INFO">${RowData} = ['sa', 'Oregon@2018']</msg>
+<var>${RowData}</var>
+<arg>row_num=${i}</arg>
+<arg>col_offset=0</arg>
+<arg>max_num=0</arg>
+<arg>sheet_name=${SheetName}</arg>
+<doc>Returns content of a row from the current sheet of the document.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.319349" elapsed="0.000141"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-27T14:23:36.319613" level="INFO">${username} = sa</msg>
+<var>${username}</var>
+<arg>${RowData}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.319547" elapsed="0.000075"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-27T14:23:36.319719" level="INFO">${password} = Oregon@2018</msg>
+<var>${password}</var>
+<arg>${RowData}[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.319665" elapsed="0.000063"/>
+</kw>
+<kw name="U_LoginApplication" owner="Keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:23:36.320103" level="INFO">Typing text 'sa' into text field 'xpath://input[@id='tbLoginID']'.</msg>
+<arg>${Login_Username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.319905" elapsed="0.088444"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:23:36.408607" level="INFO">Typing text 'Oregon@2018' into text field 'xpath://input[@id='tbPassword']'.</msg>
+<arg>${Login_Password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.408466" elapsed="0.044645"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:23:36.453513" level="INFO">Clicking button 'xpath://button[normalize-space()='Login' and @onclick='DoLogin();']'.</msg>
+<arg>${Login_Button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T14:23:36.453276" elapsed="21.865838"/>
+</kw>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-27T14:23:36.319787" elapsed="21.999392"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Logged in with username:${username} and password:${password}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-27T14:23:58.319262" elapsed="0.000127"/>
+</kw>
+<kw name="U_Verify Successful Login" owner="Keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:23:58.332949" level="INFO">Element 'xpath://span[@id='lblPageTitle']' is displayed.</msg>
+<arg>${PageTitle}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-27T14:23:58.319590" elapsed="0.013411"/>
+</kw>
+<status status="PASS" start="2024-05-27T14:23:58.319467" elapsed="0.013587"/>
+</kw>
+<kw name="U_LogoutApplication" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:23:58.333439" level="INFO">Clicking element 'id:lblUserName'.</msg>
+<arg>${WelcomeUser}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T14:23:58.333347" elapsed="0.028823"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:23:58.362399" level="INFO">Clicking link 'id:lbtnLogout'.</msg>
+<arg>${Logout}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T14:23:58.362278" elapsed="0.050546"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:23:58.413009" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2024-05-27T14:23:58.412940" elapsed="0.001642"/>
+</kw>
+<status status="PASS" start="2024-05-27T14:23:58.333214" elapsed="0.081428"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-27T14:24:03.415790" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-27T14:23:58.414727" elapsed="5.001537"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2024-05-27T14:23:36.319291" elapsed="27.097246"/>
+</iter>
+<iter>
+<kw name="Read Excel Row" owner="ExcelLibrary">
+<msg time="2024-05-27T14:24:03.418826" level="INFO">${RowData} = ['vinit', 'Oregon@2018']</msg>
+<var>${RowData}</var>
+<arg>row_num=${i}</arg>
+<arg>col_offset=0</arg>
+<arg>max_num=0</arg>
+<arg>sheet_name=${SheetName}</arg>
+<doc>Returns content of a row from the current sheet of the document.</doc>
+<status status="PASS" start="2024-05-27T14:24:03.417719" elapsed="0.001170"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-27T14:24:03.419608" level="INFO">${username} = vinit</msg>
+<var>${username}</var>
+<arg>${RowData}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-27T14:24:03.419199" elapsed="0.000467"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-27T14:24:03.420298" level="INFO">${password} = Oregon@2018</msg>
+<var>${password}</var>
+<arg>${RowData}[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-27T14:24:03.419932" elapsed="0.000423"/>
+</kw>
+<kw name="U_LoginApplication" owner="Keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:24:03.422401" level="INFO">Typing text 'vinit' into text field 'xpath://input[@id='tbLoginID']'.</msg>
+<arg>${Login_Username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T14:24:03.421784" elapsed="0.055138"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:24:03.477315" level="INFO">Typing text 'Oregon@2018' into text field 'xpath://input[@id='tbPassword']'.</msg>
+<arg>${Login_Password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T14:24:03.477098" elapsed="0.039615"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:24:03.516947" level="INFO">Clicking button 'xpath://button[normalize-space()='Login' and @onclick='DoLogin();']'.</msg>
+<arg>${Login_Button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T14:24:03.516823" elapsed="1.670124"/>
+</kw>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-27T14:24:03.420810" elapsed="1.766215"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Logged in with username:${username} and password:${password}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-27T14:24:05.187119" elapsed="0.000145"/>
+</kw>
+<kw name="U_Verify Successful Login" owner="Keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:24:05.212051" level="INFO">Element 'xpath://span[@id='lblPageTitle']' is displayed.</msg>
+<arg>${PageTitle}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-27T14:24:05.187451" elapsed="0.024739"/>
+</kw>
+<status status="PASS" start="2024-05-27T14:24:05.187339" elapsed="0.024998"/>
+</kw>
+<kw name="U_LogoutApplication" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:24:05.212790" level="INFO">Clicking element 'id:lblUserName'.</msg>
+<arg>${WelcomeUser}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T14:24:05.212657" elapsed="0.024446"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:24:05.237367" level="INFO">Clicking link 'id:lbtnLogout'.</msg>
+<arg>${Logout}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T14:24:05.237213" elapsed="0.026565"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2024-05-27T14:24:05.263963" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2024-05-27T14:24:05.263891" elapsed="0.050173"/>
+</kw>
+<status status="PASS" start="2024-05-27T14:24:05.212476" elapsed="0.101688"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-27T14:24:10.317014" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-27T14:24:05.314356" elapsed="5.003057"/>
+</kw>
+<var name="${i}">3</var>
+<status status="PASS" start="2024-05-27T14:24:03.417248" elapsed="6.900445"/>
+</iter>
+<var>${i}</var>
+<value>2</value>
+<value>${RowCount}+1</value>
+<status status="PASS" start="2024-05-27T14:23:36.319143" elapsed="33.998816"/>
+</for>
+<status status="PASS" start="2024-05-27T14:23:36.309422" elapsed="34.009237"/>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-05-27T14:24:10.320240" elapsed="0.115939"/>
+</kw>
+<status status="PASS" start="2024-05-27T14:23:22.214181" elapsed="48.222062"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="LoginWithExcelCredentials">LoginWithExcelCredentials</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-05-27T14:23:24.194092" level="WARN">The chromedriver version (124.0.6367.91) detected in PATH at /Users/niharkhandekar/PycharmProjects/BrowserDrivers/chromedriver might not be compatible with the detected chrome version (125.0.6422.78); currently, chromedriver 125.0.6422.78 is recommended for chrome 125.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>

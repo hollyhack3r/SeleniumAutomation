@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on darwin)" generated="2024-05-20T19:19:47.121510" rpa="false" schemaversion="5">
+<suite id="s1" name="SanityTest" source="/Users/niharkhandekar/PycharmProjects/Fundware/TestCases/SanityTest.robot">
+<test id="s1-t1" name="Login Into Application" line="15">
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>10 seconds</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-20T19:19:47.204343" elapsed="0.000127"/>
+</kw>
+<kw name="U_LaunchBrowser" owner="Keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-20T19:19:47.204843" level="INFO">Opening browser 'Chrome' to base url 'https://fwu.milessoft.com/FundwareUCITSClientQA_189/Authentication/Login.aspx'.</msg>
+<arg>${Application_URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-20T19:19:47.204749" elapsed="1.582038"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-20T19:19:48.787047" elapsed="0.291338"/>
+</kw>
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+<status status="PASS" start="2024-05-20T19:19:47.204575" elapsed="1.873928"/>
+</kw>
+<kw name="U_LoginApplication" owner="Keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-20T19:19:49.079343" level="INFO">Typing text 'sa' into text field 'xpath://input[@id='tbLoginID']'.</msg>
+<arg>${Login_Username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T19:19:49.079053" elapsed="0.089907"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-20T19:19:49.169296" level="INFO">Typing text 'Oregon@2018' into text field 'xpath://input[@id='tbPassword']'.</msg>
+<arg>${Login_Password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T19:19:49.169090" elapsed="0.035880"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-20T19:19:49.205233" level="INFO">Clicking button 'xpath://button[normalize-space()='Login' and @onclick='DoLogin();']'.</msg>
+<arg>${Login_Button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T19:19:49.205087" elapsed="1.728706"/>
+</kw>
+<arg>${maker_username}</arg>
+<arg>${maker_password}</arg>
+<status status="PASS" start="2024-05-20T19:19:49.078709" elapsed="1.855182"/>
+</kw>
+<kw name="U_Verify Successful Login" owner="Keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-20T19:19:50.951198" level="INFO">Element 'xpath://span[@id='lblPageTitle']' is displayed.</msg>
+<arg>${PageTitle}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-20T19:19:50.934243" elapsed="0.017013"/>
+</kw>
+<status status="PASS" start="2024-05-20T19:19:50.934018" elapsed="0.017305"/>
+</kw>
+<kw name="U_LogoutApplication" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T19:19:50.951717" level="INFO">Clicking element 'id:lblUserName'.</msg>
+<arg>${WelcomeUser}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T19:19:50.951605" elapsed="0.027744"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-20T19:19:50.979605" level="INFO">Clicking link 'id:lbtnLogout'.</msg>
+<arg>${Logout}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T19:19:50.979454" elapsed="0.051039"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2024-05-20T19:19:51.030794" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2024-05-20T19:19:51.030657" elapsed="0.001962"/>
+</kw>
+<status status="PASS" start="2024-05-20T19:19:50.951423" elapsed="0.081265"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-05-20T19:19:51.032864" elapsed="0.087501"/>
+</kw>
+<status status="PASS" start="2024-05-20T19:19:47.203968" elapsed="3.916518"/>
+</test>
+<status status="PASS" start="2024-05-20T19:19:47.131013" elapsed="3.989733"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="SanityTest">SanityTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
